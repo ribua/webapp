@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: image-registry.openshift-image-registry.svc:5000/your-namespace/webapp:latest
+        image: quay.io/rabraham/webapp:v1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
