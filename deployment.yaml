@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: image-registry.openshift-image-registry.svc:5000/webapp/webapp:latest
+        image: image-registry.openshift-image-registry.svc:5000/webapp/myimage:v1.1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
