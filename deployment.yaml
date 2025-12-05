@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
+  annotations:
+    image.openshift.io/triggers: >-
+      [{"from":{"kind":"ImageStreamTag","name":"webapp:latest","namespace":"webapp"},
+        "fieldPath":"spec.template.spec.containers[?(@.name==\"webapp\")].image"}]
   labels:
     app: webapp
     app.kubernetes.io/name: webapp
