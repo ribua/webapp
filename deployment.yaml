@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-webserver
+  labels:
+    app: my-webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-webserver
+  template:
+    metadata:
+      labels:
+        app: my-webserver
+    spec:
+      containers:
+        - name: my-webserver
+          # Points to the internal OpenShift registry where the build will push the image
+          # Format: image-registry.openshift-image-registry.svc:5000/<project-name>/<app-name>:latest
+          image: image-registry.openshift-image-registry.svc:5000/my-project/my-webserver:latest
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
