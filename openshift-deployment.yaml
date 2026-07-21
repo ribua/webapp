@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: my-webserver
-          image: quay.io/rabraham/rhel-httpd:v1.2
+          image: quay.io/rabraham/rhel-httpd:v1.5
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
